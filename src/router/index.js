@@ -1,4 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
+
+// 排行榜
+import rank from '@/modules/rank/rank-route';
+
 import Home from '../views/Home.vue';
 
 const routes = [
@@ -12,7 +16,9 @@ const routes = [
     name: 'About',
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  },
+  // 排行榜
+  ...rank
 ];
 
 const router = createRouter({
