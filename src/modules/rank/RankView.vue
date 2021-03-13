@@ -3,8 +3,8 @@
     <div class="container">
       <h1 class="rank-title">排行榜</h1>
       <div class="rank-status">
-        <span>目前排行：5</span>
-        <span>分數：80</span>
+        <span>目前排行：{{ current_rank.rank }}</span>
+        <span>分數：{{ current_rank.score }}</span>
       </div>
 
       <div class="rank-list-wrap">
@@ -42,6 +42,10 @@ export default {
   name: 'Rank',
   setup() {
     const state = reactive({
+      current_rank: {
+        rank: 5,
+        score: 80
+      },
       ranks: [
         {
           rank: 1,
@@ -124,6 +128,7 @@ export default {
 
     return {
       ranks: state.ranks,
+      current_rank: state.current_rank,
       isTopThree
     };
   }
