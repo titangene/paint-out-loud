@@ -13,7 +13,7 @@
             <div class="ranking-number">
               <div v-if="isTopThree(item.rank)" class="ranking-number-image">
                 <img
-                  :src="require(`@/assets/images/ranked-${item.rank}.png`)"
+                  :src="`img/ranked-${item.rank}.png`"
                   :alt="`ranked ${item.rank}`"
                 />
               </div>
