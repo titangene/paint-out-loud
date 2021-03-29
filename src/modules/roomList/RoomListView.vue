@@ -8,23 +8,27 @@
       <div class="user"></div>
     </header>
     <main>
-      <section  class="p-grid">
-        <div v-for="item in 9" :key="item.id" class="p-col-12 p-sm-6 p-md-4 p-lg-3 card">
+      <section  class="p-grid rooms">
+        <div v-for="item in 9" :key="item.id" class="p-col-12 p-sm-6 p-md-4 p-lg-3">
           <div class="room-card">
             <h1 class="room-name">YTLJ ROOM</h1>
             <div class="infos">
               <div class="item">
                 <img src="./images/user-group.svg" alt="players" />
-                <h2>5/10</h2>
+                <h2>5 / 10</h2>
               </div>
               <div class="item">
                 <img src="./images/trophy.svg" alt="trophy" />
-                <h2>54/150</h2>
+                <h2>54 / 150</h2>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <div class="buttons">
+        <button>建立新房間</button>
+        <button>開始遊戲</button>
+      </div>
     </main>
 </div>
 </template>
@@ -48,6 +52,7 @@ export default {
   width: 30%;
   padding: 12px 0;
   margin: 0 auto;
+  font-size: 24px;
   text-align: center;
   border-radius: 5px;
   background-color: #e6b566;
@@ -68,7 +73,7 @@ header {
 	}
 }
 
-main {
+.rooms {
   padding: 20px;
   margin-top: 30px;
   background-color: #e5707e;
@@ -88,16 +93,17 @@ main {
 	}
 
   h2 {
-    font-size: 19px;
+    font-size: 18px;
     margin: 5px 0 0 0;
   }
 
   .room-name {
     padding: 5px;
     margin-bottom: 25px;
-    font-size: 24px;
+    font-size: 22px;
     text-align: center;
-    background-color: #E6B566;
+    letter-spacing: 1px;
+    background-color: $peach;
     border-radius: 5px;
   }
 
@@ -112,6 +118,27 @@ main {
     img {
       width: 50px;
     }
+  }
+}
+
+// 之後要拆成 component
+.buttons {
+  margin-top: 30px;
+  text-align: center;
+
+  button {
+    width: 150px;
+    padding: 13px 0;
+    background: $peach;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+  }
+
+  button + button{
+    margin-left: 30px;
   }
 }
 </style>
