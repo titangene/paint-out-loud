@@ -1,12 +1,7 @@
 <template>
   <!-- 暫時的按鈕 -->
   <Button :label="buttonLabel" @click="openModal" />
-  <Dialog
-    v-model:visible="displayModal"
-    :style="{ width: '50vw' }"
-    :modal="true"
-    :showHeader="false"
-  >
+  <Dialog v-model:visible="displayModal" :modal="true" :showHeader="false">
     <slot></slot>
   </Dialog>
 </template>
@@ -40,6 +35,7 @@ export default {
 
 <style lang="scss">
 div.p-dialog {
+  width: 50vw;
   border-radius: 8px;
   overflow: hidden;
 }
