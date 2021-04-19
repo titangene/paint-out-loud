@@ -1,7 +1,12 @@
 <template>
   <!-- 暫時的按鈕 -->
   <Button :label="buttonLabel" @click="openModal" />
-  <Dialog v-model:visible="displayModal" :modal="true" :showHeader="false">
+  <Dialog
+    v-model:visible="displayModal"
+    :modal="true"
+    :showHeader="false"
+    :dismissableMask="true"
+  >
     <slot></slot>
   </Dialog>
 </template>
