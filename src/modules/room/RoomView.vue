@@ -22,6 +22,26 @@
           />
         </div>
       </div>
+      <div class="p-d-md-none">
+        <TabView>
+          <TabPanel header="回答">
+            <AnswerMessages
+              :messages="answerMessages"
+              :isAnswerCorrect="isAnswerCorrect"
+              @submitMessage="onSubmitAnswerMessage"
+            />
+          </TabPanel>
+          <TabPanel header="聊天">
+            <ChatMessages
+              :messages="chatMessages"
+              @submitMessage="onSubmitChatMessage"
+            />
+          </TabPanel>
+          <TabPanel header="玩家">
+            <RoomRankList :ranks="ranks" />
+          </TabPanel>
+        </TabView>
+      </div>
     </main>
   </div>
 </template>
@@ -211,7 +231,35 @@ export default {
 <style lang="scss" scoped>
 .room {
   display: flex;
+
+  aside {
+    flex: 0 0 250px;
+
+    .room-rank-list {
+      max-height: calc(100vh - 100px);
+
+      overflow: auto;
+    }
+  }
+
+  main {
+    flex: 1 0 0;
+  }
 }
+
+.exit-room-button {
+  width: 100%;
+
+  background-color: $pink;
+  color: $light;
+}
+
+canvas {
+  width: 100%;
+
+  outline: 1px solid;
+}
+
 ::v-deep {
   .message-history {
     max-height: 400px;
