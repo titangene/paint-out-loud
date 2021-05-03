@@ -4,6 +4,18 @@
       <RoomRankList class="p-pr-2" :ranks="ranks" />
       <BaseButton class="exit-room-button p-mt-4">離開房間</BaseButton>
     </aside>
+    <main>
+      <canvas />
+
+      <div class="p-grid p-d-none p-d-md-flex">
+        <div class="p-col">
+          <ChatMessages
+            :messages="chatMessages"
+            @submitMessage="onSubmitChatMessage"
+          />
+        </div>
+      </div>
+    </main>
   </div>
 </template>
 
@@ -11,12 +23,14 @@
 import { reactive } from 'vue';
 import RoomRankList from './components/RoomRankList.vue';
 import BaseButton from '@/components/BaseButton.vue';
+import ChatMessages from './components/ChatMessages.vue';
 
 export default {
   name: 'Room',
   components: {
     RoomRankList,
-    BaseButton
+    BaseButton,
+    ChatMessages
   },
   setup() {
     const state = reactive({
@@ -106,11 +120,39 @@ export default {
           avatar_url: 'https://picsum.photos/150/150',
           avatar_index: 12
         }
-      ]
+      ],
+      chatMessages: Array(16)
+        .fill([
+          {
+            type: 1,
+            user_id: 1,
+            user_name: 'Titan',
+            message: '嗨！'
+          },
+          {
+            type: 1,
+            user_id: 2,
+            user_name: 'Lester',
+            message: 'Hello there!'
+          }
+        ])
+        .flat()
     });
 
+    function onSubmitChatMessage(message) {
+      state.chatMessages.push({
+        type: 1,
+        user_id: 1,
+        user_name: 'Titan',
+        message
+      });
+    }
+
     return {
-      ranks: state.ranks
+      ranks: state.ranks,
+
+      chatMessages: state.chatMessages,
+      onSubmitChatMessage
     };
   }
 };
