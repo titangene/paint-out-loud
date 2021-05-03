@@ -1,11 +1,123 @@
 <template>
-  <div class="room"></div>
+  <div class="room p-p-2">
+    <aside class="p-mr-4 p-d-none p-d-md-block">
+      <RoomRankList class="p-pr-2" :ranks="ranks" />
+      <BaseButton class="exit-room-button p-mt-4">離開房間</BaseButton>
+    </aside>
+  </div>
 </template>
 
 <script>
+import { reactive } from 'vue';
+import RoomRankList from './components/RoomRankList.vue';
+import BaseButton from '@/components/BaseButton.vue';
+
 export default {
-  name: 'Room'
+  name: 'Room',
+  components: {
+    RoomRankList,
+    BaseButton
+  },
+  setup() {
+    const state = reactive({
+      ranks: [
+        {
+          rank: 1,
+          score: 300,
+          user_name: 'Titan',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 1,
+          user_id: 1
+        },
+        {
+          rank: 2,
+          score: 250,
+          user_name: 'Yachen',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 2
+        },
+        {
+          rank: 3,
+          score: 200,
+          user_name: 'Jinwen',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 3
+        },
+        {
+          rank: 4,
+          score: 150,
+          user_name: 'Lester',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 4
+        },
+        {
+          rank: 5,
+          score: 100,
+          user_name: 'Titan',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 5
+        },
+        {
+          rank: 6,
+          score: 80,
+          user_name: 'Yachen',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 6
+        },
+        {
+          rank: 7,
+          score: 60,
+          user_name: 'Jinwen',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 7
+        },
+        {
+          rank: 8,
+          score: 50,
+          user_name: 'Lester',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 8
+        },
+        {
+          rank: 9,
+          score: 40,
+          user_name: 'Titan',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 9
+        },
+        {
+          rank: 10,
+          score: 30,
+          user_name: 'Yachen',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 10
+        },
+        {
+          rank: 11,
+          score: 20,
+          user_name: 'Jinwen',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 11
+        },
+        {
+          rank: 12,
+          score: 10,
+          user_name: 'Lester',
+          avatar_url: 'https://picsum.photos/150/150',
+          avatar_index: 12
+        }
+      ]
+    });
+
+    return {
+      ranks: state.ranks
+    };
+  }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.room {
+  display: flex;
+}
+</style>
