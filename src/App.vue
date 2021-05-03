@@ -3,7 +3,8 @@
     <router-link to="/">Modals</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link :to="{ name: 'Rank' }">Rank</router-link> |
-    <router-link :to="{ name: 'RoomList' }">RoomList</router-link>
+    <router-link :to="{ name: 'RoomList' }">RoomList</router-link> |
+    <router-link :to="{ name: 'Room', params: { id: 1 } }">Room</router-link>
   </div>
   <router-view />
 </template>
