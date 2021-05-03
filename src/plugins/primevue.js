@@ -10,6 +10,7 @@ import 'primeicons/primeicons.css';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Dialog from 'primevue/dialog';
+import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 
 export default {
@@ -18,6 +19,7 @@ export default {
     app.component('DataTable', DataTable);
     app.component('Column', Column);
     app.component('Dialog', Dialog);
+    app.component('InputText', InputText);
     app.component('Button', Button);
   }
 };
