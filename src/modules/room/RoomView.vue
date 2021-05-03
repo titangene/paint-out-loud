@@ -14,23 +14,33 @@
             @submitMessage="onSubmitChatMessage"
           />
         </div>
+        <div class="p-col">
+          <AnswerMessages
+            :messages="answerMessages"
+            :isAnswerCorrect="isAnswerCorrect"
+            @submitMessage="onSubmitAnswerMessage"
+          />
+        </div>
       </div>
     </main>
   </div>
 </template>
 
 <script>
-import { reactive } from 'vue';
+import { reactive, computed } from 'vue';
+
 import RoomRankList from './components/RoomRankList.vue';
 import BaseButton from '@/components/BaseButton.vue';
 import ChatMessages from './components/ChatMessages.vue';
+import AnswerMessages from './components/AnswerMessages.vue';
 
 export default {
   name: 'Room',
   components: {
     RoomRankList,
     BaseButton,
-    ChatMessages
+    ChatMessages,
+    AnswerMessages
   },
   setup() {
     const state = reactive({
@@ -136,6 +146,24 @@ export default {
             message: 'Hello there!'
           }
         ])
+        .flat(),
+      answerMessages: Array(16)
+        .fill([
+          {
+            type: 2,
+            user_id: 1,
+            user_name: 'Titan',
+            message: '蘋果',
+            correct: false
+          },
+          {
+            type: 2,
+            user_id: 2,
+            user_name: 'Lester',
+            message: '蘋果',
+            correct: false
+          }
+        ])
         .flat()
     });
 
@@ -148,11 +176,33 @@ export default {
       });
     }
 
+    function onSubmitAnswerMessage(message) {
+      state.answerMessages.push({
+        type: 2,
+        user_id: 1,
+        user_name: 'Titan',
+        message,
+        correct: true
+      });
+    }
+
+    const isAnswerCorrect = computed(() => {
+      // TODO 取得當前使用者 id
+      const userId = 1;
+      return state.answerMessages.some(
+        message => message.user_id === userId && message.correct
+      );
+    });
+
     return {
       ranks: state.ranks,
 
       chatMessages: state.chatMessages,
-      onSubmitChatMessage
+      onSubmitChatMessage,
+
+      answerMessages: state.answerMessages,
+      onSubmitAnswerMessage,
+      isAnswerCorrect
     };
   }
 };
@@ -161,5 +211,11 @@ export default {
 <style lang="scss" scoped>
 .room {
   display: flex;
+}
+::v-deep {
+  .message-history {
+    max-height: 400px;
+    overflow: auto;
+  }
 }
 </style>
