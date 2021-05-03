@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 // 排行榜
 import rank from '@/modules/rank/rank-route';
 import roomList from '@/modules/roomList/roomList-route';
+import room from '@/modules/room/room-route';
 
 import Home from '../views/Home.vue';
 
@@ -20,7 +21,8 @@ const routes = [
   },
   // 排行榜
   ...rank,
-  ...roomList
+  ...roomList,
+  ...room
 ];
 
 const router = createRouter({
