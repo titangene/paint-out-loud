@@ -40,9 +40,16 @@ export default {
 
 <style lang="scss">
 div.p-dialog {
-  width: 50vw;
   border-radius: 8px;
   overflow: hidden;
+
+  @media screen and (min-width: 567px){
+    width: 90vw;
+  }
+
+  @media screen and (min-width: 768px){
+    width: 50vw;
+  }
 }
 
 div.p-dialog .p-dialog-content {
