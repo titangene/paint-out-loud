@@ -20,7 +20,7 @@
         <img src="../assets/images/hourglass.gif" alt="hourglass" />
         <p>準備好開始享受 <span>一起話畫</span> 了嗎?</p>
         <!-- 根據房間人入是否大於 1 來切換 button -->
-        <Button label="遊戲開始" />
+        <BaseButton class="start-game-button">遊戲開始</BaseButton>
         <!-- <Button label="等待其他玩家加入中" /> -->
       </div>
     </BaseModal>
@@ -71,12 +71,12 @@
         <div class="questions">
           <div class="item">
             <p class="answer">長毛象</p>
-            <Button>選擇</Button>
+            <BaseButton>選擇</BaseButton>
           </div>
           <div class="item">或</div>
           <div class="item">
             <p class="answer">水煎包</p>
-            <Button>選擇</Button>
+            <BaseButton>選擇</BaseButton>
           </div>
         </div>
       </div>
@@ -90,8 +90,8 @@
       <div class="modal-share-url">
         <p>分享房間遊戲連結，與好友同樂!</p>
         <span class="room-url">https://xxxx.xxxx.xx</span>
-        <Button>複製連結</Button>
-        <Button>進入房間</Button>
+        <BaseButton>複製連結</BaseButton>
+        <BaseButton>進入房間</BaseButton>
       </div>
     </BaseModal>
 
@@ -100,8 +100,8 @@
         <img src="../assets/images/exit.svg" alt="" />
         <p>確定要離開房間嗎？</p>
         <div class="buttons">
-          <Button>取消</Button>
-          <Button>確認</Button>
+          <BaseButton>取消</BaseButton>
+          <BaseButton>確認</BaseButton>
         </div>
       </div>
     </BaseModal>
@@ -110,11 +110,13 @@
 
 <script>
 import BaseModal from '@/components/BaseModal.vue';
+import BaseButton from '@/components/BaseButton.vue';
 
 export default {
   name: 'Home',
   components: {
-    BaseModal
+    BaseModal,
+    BaseButton
   }
 };
 </script>
