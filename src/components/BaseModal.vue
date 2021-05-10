@@ -60,7 +60,7 @@ div.p-dialog .p-dialog-content {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 70px 0;
+    padding: 70px 10px;
     text-align: center;
   }
 
