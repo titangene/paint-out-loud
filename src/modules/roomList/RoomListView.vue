@@ -26,17 +26,21 @@
         </div>
       </section>
       <div class="buttons">
-        <button>建立新房間</button>
-        <button>開始遊戲</button>
+        <BaseButton class="button new-room-button">建立新房間</BaseButton>
+        <BaseButton class="button start-button">開始遊戲</BaseButton>
       </div>
     </main>
 </div>
 </template>
 
 <script>
+import BaseButton from '@/components/BaseButton';
+
 export default {
   name: 'RoomList',
-  components: {},
+  components: {
+    BaseButton
+  },
   props: {}
 };
 </script>
@@ -125,20 +129,17 @@ header {
 .buttons {
   margin-top: 30px;
   text-align: center;
+}
 
-  button {
-    width: 150px;
-    padding: 13px 0;
-    background: $peach;
-    font-size: 18px;
-    letter-spacing: 1px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-  }
+.button {
+  padding: 13px;
+}
 
-  button + button{
-    margin-left: 30px;
-  }
+.new-room-button {
+  background-color: $peach;
+}
+
+.button + .button{
+  margin-left: 30px;
 }
 </style>
