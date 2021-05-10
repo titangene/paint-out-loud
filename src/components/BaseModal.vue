@@ -42,9 +42,10 @@ export default {
 div.p-dialog {
   border-radius: 8px;
   overflow: hidden;
+  width: 90vw;
 
   @media screen and (min-width: 567px){
-    width: 90vw;
+    width: 70vw;
   }
 
   @media screen and (min-width: 768px){

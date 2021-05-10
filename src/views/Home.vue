@@ -146,17 +146,25 @@ export default {
 .modal-questions {
   .questions {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
 
-  .item + .item {
-    margin-left: 50px;
-  }
 
   .select-button {
     background-color: $peach;
     color: $light
+  }
+
+  @media screen and (min-width: 576px){
+    .questions {
+      flex-direction: row;
+    }
+
+    .item + .item {
+      margin-left: 50px;
+  }
   }
 }
 
