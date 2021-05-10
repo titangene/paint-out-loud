@@ -20,8 +20,8 @@
         <img src="../assets/images/hourglass.gif" alt="hourglass" />
         <p>準備好開始享受 <span>一起話畫</span> 了嗎?</p>
         <!-- 根據房間人入是否大於 1 來切換 button -->
-        <BaseButton class="start-game-button">遊戲開始</BaseButton>
-        <!-- <Button label="等待其他玩家加入中" /> -->
+        <BaseButton class="button start-game-button">遊戲開始</BaseButton>
+        <BaseButton class="button waiting-button">等待其他玩家加入中...</BaseButton>
       </div>
     </BaseModal>
 
@@ -71,12 +71,12 @@
         <div class="questions">
           <div class="item">
             <p class="answer">長毛象</p>
-            <BaseButton>選擇</BaseButton>
+            <BaseButton class="select-button">選擇</BaseButton>
           </div>
           <div class="item">或</div>
           <div class="item">
             <p class="answer">水煎包</p>
-            <BaseButton>選擇</BaseButton>
+            <BaseButton class="select-button">選擇</BaseButton>
           </div>
         </div>
       </div>
@@ -90,8 +90,8 @@
       <div class="modal-share-url">
         <p>分享房間遊戲連結，與好友同樂!</p>
         <span class="room-url">https://xxxx.xxxx.xx</span>
-        <BaseButton>複製連結</BaseButton>
-        <BaseButton>進入房間</BaseButton>
+        <BaseButton class="button copy-button">複製連結</BaseButton>
+        <BaseButton class="button cancel-button">進入房間</BaseButton>
       </div>
     </BaseModal>
 
@@ -100,8 +100,8 @@
         <img src="../assets/images/exit.svg" alt="" />
         <p>確定要離開房間嗎？</p>
         <div class="buttons">
-          <BaseButton>取消</BaseButton>
-          <BaseButton>確認</BaseButton>
+          <BaseButton class="button cancel-button">取消</BaseButton>
+          <BaseButton class="button confirm-button">確認</BaseButton>
         </div>
       </div>
     </BaseModal>
@@ -128,6 +128,19 @@ export default {
   p > span {
     color: $pink;
   }
+
+  .button {
+    width: 200px;
+    color: $light;
+  }
+
+  .start-game-button {
+    background-color: $peach;
+  }
+
+  .waiting-button {
+    background-color: $gray;
+  }
 }
 
 .modal-questions {
@@ -140,6 +153,11 @@ export default {
   .item + .item {
     margin-left: 50px;
   }
+
+  .select-button {
+    background-color: $peach;
+    color: $light
+  }
 }
 
 .modal-share-url {
@@ -147,20 +165,43 @@ export default {
 
   .room-url {
     padding: 5px 20px;
-    background-color: #fff;
+    background-color: $light;
     border-radius: 5px;
   }
 
-  button {
+  .button {
+    width: 150px;
     margin-top: 20px;
+  }
+
+  .copy-button{
+    background-color: $peach;
+    color: $light;
+  }
+
+  .cancel-button {
+    background-color: $robin;
   }
 }
 
 .modal-exit-confirm {
   background-color: $butter;
 
-  button + button {
+  .button {
+    width: 80px;
+  }
+
+  .button + .button {
     margin-left: 30px;
+  }
+
+  .cancel-button {
+    background-color: $pink;
+    color: $light;
+  }
+
+  .confirm-button {
+    background-color: $peach;
   }
 }
 </style>
